@@ -1,0 +1,26 @@
+{
+    "id": "925A8D14",
+    "path": "~/Documents/conversion_reporting/inst/rmarkdown/templates/QPC_template/skeleton/QPC_skeleton.Rmd",
+    "project_path": "inst/rmarkdown/templates/QPC_template/skeleton/QPC_skeleton.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1663681597464.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,23",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663681896,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663681896641,
+    "read_only": false,
+    "read_only_alternatives": []
+}

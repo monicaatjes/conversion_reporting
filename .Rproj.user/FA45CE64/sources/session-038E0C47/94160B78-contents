@@ -1,0 +1,5517 @@
+---
+title: "Conversion performance per market"
+output: 
+  html_document:
+    css: ing_styles.css
+    #logo: Documents/Lokaal/BAM2/exploration/identifier.png
+    favicon: Downloades/identifier.ico
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "left")
+
+```
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/it.png) Italy
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop1, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt1, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop2, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b2, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop31, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em2, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop190, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+### **Mortgages**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b, echo=FALSE, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tab it mo, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tab1, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Current accounts**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ca,echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tab ca it, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ca, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r ca it tab12, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b s, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r sav it, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients s, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tabs it, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top1: Investment in self**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ip1 IT, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tab ip1 it, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ip1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  **Conversion (%)**
+   
+```{r tab ip1 IT, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Unsecurend lending_top1: Lending**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL1 IT, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ul1 it, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ul1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ul11 IT, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecurend lending_top2: Instant lending**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ul2, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ul2 IT, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/aus.png) Italy", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b3, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop13, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt13, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop233, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b23, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop313, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em23, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(NewvsCurrent=="Customer") 
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop23, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+
+### **Mortgages_top1: Starter mortgage**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b MO1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b MO1, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv MO1 clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r MO1 customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Mortgages_top2: Renewal mortgage**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b MO2, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b MO2, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients MO2, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab1 customers MO2, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Current accounts**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ca GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B" ) 
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ca, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ca GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab12, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+
+### **Savings**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b s GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab s, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients s GE, echo=FALSE, echo=F, eval=T, fig.width=4, fig.height=4, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs ge, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top1: IP Standard**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b IP1 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(`Start application`!=0)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP1 GE, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1) %>%
+  dplyr::filter(con_1!=0)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients IP1 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(`Start application`!=0)
+
+funnel_plot1 <- funnel_plot %>%  
+  plot_ly() %>%
+  add_trace(type = "funnel",
+            name= "Mobile",
+            y = c("Product page", "Start application", "Finish application", "Account opening"),
+            x = c(
+              #round(funnel_plot$`Category page`[funnel_plot$Device=="Mobile"], digits=2),
+                  round(funnel_plot$`Product page`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Start application`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Finish application`[funnel_plot$Device=="Mobile"], digits=2),
+                  round(funnel_plot$`Account opening`[funnel_plot$Device=="Mobile"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(82, 81, 153)", "rgb(82, 81, 153)", "rgb(82, 81, 153)",
+                                    "rgb(82, 81, 153)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+ add_trace(
+    type = "funnel",
+    name = 'Desktop',
+    y = c("Product page", "Start application", "Finish application", "Account opening"),
+    x = c(
+      #round(funnel_plot$`Category page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Product page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Start application`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Finish application`[funnel_plot$Device=="Desktop"], digits=2),
+          round(funnel_plot$`Account opening`[funnel_plot$Device=="Mobile"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(255,098,000)", "rgb(255,098,000)", "rgb(255,098,000)",
+                                    "rgb(255,098,000)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+  
+   # add_trace(
+   # type = "funnel",
+  #  name = 'NativeApp',
+  #  y = c("Product page", "Start application", "Finish application", "Account opening"),
+   # x = c(
+      #round(funnel_plot$`Category page`[funnel_plot$Device=="NativeApp"], digits=2), 
+  #        round(funnel_plot$`Product page`[funnel_plot$Device=="NativeApp"], digits=2), 
+  #        round(funnel_plot$`Start application`[funnel_plot$Device=="NativeApp"], digits=2), 
+  #        round(funnel_plot$`Finish application`[funnel_plot$Device=="NativeApp"], digits=2),
+  #        round(funnel_plot$`Account opening`[funnel_plot$Device=="NativeApp"], digits=2)),
+  #          textposition = "inside",
+  #          textinfo = "value",
+  #          opacity = 1.0,
+  #          marker = list(color = c("rgb(105, 105, 105)", "rgb(105, 105, 105)", "rgb(105, 105, 105)",
+  #                                  "rgb(105, 105, 105)")),
+  #          textfont = list(family = "ING me", size = 14, color = "white"),
+  #          connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+  
+  layout(yaxis = list(categoryarray = c("Product page", "Start application", "Finish application", "Account opening"),
+                      tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+         xaxis = list(tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+        legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
+##
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs IP1 GE, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1) %>%
+  dplyr::filter(`Start application`!=0)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top2: Advisory**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b IP2 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP2 GE, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients IP2 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs IP2 GE, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Unsecured lending_top1: Car loan**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL1 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL1 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients UL1 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs UL1 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top2: General Installment**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL2 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL2 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients UL2 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs UL2 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top3: Revolving loan**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL3 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL3 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients UL3 GE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs UL3 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/GE.png) Germany", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Insurance_top1: Loan Insurance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients In1 GE,echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs Ins1 GE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/NL.png) The Netherlands
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b4, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/NL.png) NL", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop14, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt14, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/NL.png) NL", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop234, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b24, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/NL.png) NL", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2)
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop314, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em24, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/NL.png) NL", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3)
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop24, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+### **Investment products_top1: Easy invest** ###
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv n2b NL ip1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot  %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab NL ip1, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  #dplyr::filter(is.na(NewvsCurrent)) %>%
+  dplyr::filter(rank_order==1) %>%
+ # dplyr::filter(quarter > min(quarter)) %>%
+  dplyr::filter(quarter >"2021 Q2") %>%
+  dplyr::filter(Device =="Mobile" | Device == "Desktop")
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Investment products_Top2: DIY**
+```{r conv n2b NL IP2, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot  %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot  %>%  
+  plot_ly() %>%
+  add_trace(type = "funnel",
+            name= "Mobile",
+            y = c("Product page", "Start application", "Finish application"),
+            x = c(#round(funnel_plot$`Category page`[funnel_plot$Device=="Mobile"], digits=2),
+                  round(funnel_plot$`Product page`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Start application`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Finish application`[funnel_plot$Device=="Mobile"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(82, 81, 153)", "rgb(82, 81, 153)", "rgb(82, 81, 153)",
+                                    "rgb(82, 81, 153)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+ add_trace(
+    type = "funnel",
+    name = 'Desktop',
+    y = c("Product page", "Start application", "Finish application"),
+    x = c(#round(funnel_plot$`Category page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Product page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Start application`[funnel_plot$Device=="Desktop"], digits=2),
+          round(funnel_plot$`Finish application`[funnel_plot$Device=="Desktop"], digits=2)),
+          #round(funnel_plot$`Account opening`[funnel_plot$Device=="Desktop"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(255,098,000)", "rgb(255,098,000)", "rgb(255,098,000)",
+                                    "rgb(255,098,000)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+  
+  
+  layout(yaxis = list(categoryarray = c("Product page", "Start application", "Finish application"),
+                      tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+         xaxis = list(tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+        legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
+##
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab NL ip2, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  dplyr::filter(is.na(NewvsCurrent)) %>%
+  dplyr::filter(rank_order==2) %>%
+ # dplyr::filter(quarter > min(quarter)) %>%
+  dplyr::filter(quarter >"2021 Q2") %>%
+  dplyr::filter(Device =="Mobile" | Device == "Desktop")
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+   
+ </div> 
+</div>
+
+
+### **Investment products_top3: Asset management**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv n2b NL ip3, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot  %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot  %>%  
+  plot_ly() %>%
+  add_trace(type = "funnel",
+            name= "Mobile",
+            y = c("Product page", "Start application", "Finish application"),
+            x = c(#round(funnel_plot$`Category page`[funnel_plot$Device=="Mobile"], digits=2),
+                  round(funnel_plot$`Product page`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Start application`[funnel_plot$Device=="Mobile"], digits=2), 
+                  round(funnel_plot$`Finish application`[funnel_plot$Device=="Mobile"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(82, 81, 153)", "rgb(82, 81, 153)", "rgb(82, 81, 153)",
+                                    "rgb(82, 81, 153)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+ add_trace(
+    type = "funnel",
+    name = 'Desktop',
+    y = c("Product page", "Start application", "Finish application"),
+    x = c(#round(funnel_plot$`Category page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Product page`[funnel_plot$Device=="Desktop"], digits=2), 
+          round(funnel_plot$`Start application`[funnel_plot$Device=="Desktop"], digits=2),
+          round(funnel_plot$`Finish application`[funnel_plot$Device=="Desktop"], digits=2)),
+          #round(funnel_plot$`Account opening`[funnel_plot$Device=="Desktop"], digits=2)),
+            textposition = "inside",
+            textinfo = "value",
+            opacity = 1.0,
+            marker = list(color = c("rgb(255,098,000)", "rgb(255,098,000)", "rgb(255,098,000)",
+                                    "rgb(255,098,000)")),
+            textfont = list(family = "ING me", size = 14, color = "white"),
+            connector = list(fillcolor = c("white", "white", "white", "white"))) %>%
+  
+  layout(yaxis = list(categoryarray = c("Product page", "Start application", "Finish application"),
+                      tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+         xaxis = list(tickfont =list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')),
+        legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
+##
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab NL ip3, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="The Netherlands") %>%
+  dplyr::filter(is.na(NewvsCurrent)) %>%
+  dplyr::filter(rank_order==3) %>%
+ # dplyr::filter(quarter > min(quarter)) %>%
+  dplyr::filter(quarter >"2021 Q2") %>%
+  dplyr::filter(Device =="Mobile" | Device == "Desktop")
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+
+ </div> 
+</div>
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b5, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent =="Customer")
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop15, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt15, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent =="Customer")
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop235, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b25, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(NewvsCurrent =="Customer")
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop315, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em25, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(NewvsCurrent =="Customer")
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop25, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+### **Mortgages**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b MO SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b MO sp, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv MO sp clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r MO SP customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Current accounts**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ca SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ca Sp, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ca SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ca sp t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **Customers**
+```{r conv n2b s SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ssp, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+ </div> 
+</div>
+
+### **Investment products_top1: Mutual Funds (Opens)**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **(only) Customers**
+```{r conv n2b IP1 SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP1 SPt, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+ </div> 
+</div>
+
+### **Investment products_top2: Mutual Funds**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **(only) Customers**
+```{r conv cus IP2 SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP2 SP, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+ </div> 
+</div>
+
+### **Investment products_top3: Mutual Funds (Money IN)**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **(Only) N2B**
+```{r conv n2b IP3 SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP3 SP, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+tine_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+ 
+
+
+### **Unsecured lending_top1: On Demand Loans**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **Customers**
+```{r conv n2b UL1 SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL1 SP, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top2: Preapproved Loans**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **Customers**
+```{r conv n2b UL2 SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL2 SP, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+### **Insurances_top1: Insurance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **Customers**
+```{r conv n2b ins SP, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ins SP, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/SP.png) Spain", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b6, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop16, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt16, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop236, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b26, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2)
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop316, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em26, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3)
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop26, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+### **Mortgages**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  MO RO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country== "Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1) 
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab it mo RO, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Current Accounts_top1: CA** ###
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv n2b RO ca1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country=="Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab RO ca1, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customers**
+```{r conv RO s, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country=="Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab s RO, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+ </div> 
+</div>
+
+### **Investment products_top1: Mutual funds** ###
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv n2b RO IP1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country=="Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab RO IP1, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecurend lending_top1: Personal loan** ###
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv n2b RO UL1, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country=="Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab RO UL1, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2: Credit card**
+```{r conv n2b RO UL2, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country=="Romania") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab RO ul2, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/RO.png) Romania", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland
+
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b7, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop17, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt17, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop237, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b27, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop317, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em27, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop27, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+
+### **Current accounts_top1: Direct**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b CA1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab CA1 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients CA1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs CA1 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Current accounts_top2: Mobi**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b CA2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab CA2 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients CA2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs CA2 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Current accounts_top3: Komfort**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b CA3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab CA3 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients CA3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs CA3 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings_top1: Saving goal**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b sav1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab sav1 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients sav1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs sav1 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings_top2: Savings account**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b sav2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab sav2 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients sav2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs sav2 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings_top3: Term deposit**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b sav3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab sav3 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients sav3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs sav3 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Investment products_top1: Fund with term deposit**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b IP1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP1 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients IP1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs Ip1 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top2: Investment funds**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b Ip2 PL, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab Ip2 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients IP2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs IP2 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top3: Regular investment**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b Ip3 PL, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab Ip3 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients IP3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs IP3 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top1: Cash loan**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL1 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients UL1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs UL1 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top2: Overdraft**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b UL2 PL, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL2 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients UL2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs UL2 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Insurances_top1: Card insurance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ins1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ins1 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ins1 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs ins1 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Insurances_top2: Travel insurance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ins2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ins2 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ins2 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs ins2 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Insurances_top3: Mortgage house insurance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ins3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("!![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ins3 PO, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv clients ins3 PO, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tabs ins3 PL, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PL.png) Poland", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium 
+
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b8, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop18, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt18, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1)
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop238, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b28, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2)
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop318, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em28, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3)
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop28, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div> 
+
+
+Product page = Interest radius -> Visits on category page + visits on product page + visits on key landing pages (during a campaign for example) + visits on simulation tools (if available) + visits on the flow (so including starts and submits).
+
+### **Mortgages**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  MO BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab it mo BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Current accounts_top1: Lion account**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  CA BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ca BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2:Green account**
+```{r conv  CA2 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab  CA2 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings_top1: Green savings**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  S1 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab S1 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2:Green savings minors**
+```{r conv  S2 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab  S2 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top1: Easy invest (soon to be launched)**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  IP1 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(Product=="Self Invest")
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab IP1 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(Product=="Self Invest") %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2:Star fund**
+```{r conv  IP2 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(Product =="Star Fund")
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab  IP2 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(Product =="Star Fund") %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top1: Credit card**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  UL1 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab UL1 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2: Car loan**
+```{r conv  ul2 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab  UL 2 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+### **Insurances_top1: Lion assistance**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B + customer**
+```{r conv  ins1 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab ins1 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Top2: Car Insurance**
+```{r conv  ins2 BE, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country== "Belgium") %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab  ins 2 BE, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/BE.png) Belgium", '\\b\\w+$')) %>%
+  #dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+
+<br>
+
+
+ </div> 
+</div>
+
+##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia
+
+
+### **QPC summary view**
+
+Shows conversion 1 (# started flows/ # visits product page) for product 1 (product most traffic on product page) & <br />
+Shows conversion 2 (# finished flows/ # started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 1 (%)**
+```{r conv propn2b9, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p1 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p1 <- post_stamp_function(post_stamp_plot_p1) 
+post_stamp_plot_p1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop19, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+ **Delta (%) previous quarter (latest - previous)**
+```{r conv empt19, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=4, warning=F, message=F, fig.align="left"}
+tab_plot <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+tab_plot <- tab_function(tab_plot) 
+tab_plot
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop239, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div>  
+
+### **QPC view detailed pages**
+
+Shows total conversion 1 (#started flows/ #visits product page) for product 1 (product most traffic on product page) <br />
+Shows total conversion 2 (#finished flows/ #started flows) for product 1 (product most traffic on product page)
+<br><br>
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  **Customers & product 2 (%)**
+```{r conv propn2b29, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+post_stamp_plot_p2 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p2 <- post_stamp_function(post_stamp_plot_p2) 
+post_stamp_plot_p2
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop319, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ **Customers & product 3 (%)**
+```{r conv em29, echo=FALSE, echo=F, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+post_stamp_plot_p3 <- data_overviews_test_customer %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(rank_order==3) %>%
+  dplyr::filter(NewvsCurrent=="Customer")
+
+post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
+post_stamp_plot_p3
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r conv prop29, echo=FALSE, eval=T, fig.width=4.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+ 
+ </div>
+</div> 
+
+
+### **Mortgages_top1**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b MO au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b MO au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv MO au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r MO au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Mortgages") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Current accounts_top1 Orange Everyday**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b CA au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b CA au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv CA au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r CA au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Current accounts") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Savings_top1**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b S au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b S au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv S au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r S au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Savings") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Investment products_top1 Superannuation**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b IP au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b IP au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv IP au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r ip au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Investment products") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Unsecured lending_top1 Personal loan**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ul au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b UL au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv UL au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r ul au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Unsecured lending_top2 Credit card**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b ul2 au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b UL2 au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv UL2 au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r ul2 au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Unsecured lending") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+### **Insurance_top1 Car**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b in1 au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b in au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv in au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r in au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==1) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+### **Insurance_top2 Home and Contents**
+<div class="row">
+  <div class="col-md-3" markdown="1">
+  
+  **N2B**
+```{r conv n2b in2 au, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r tab n2b in2 au, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="N2B") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers**
+   
+```{r conv in2 au clients, echo=FALSE, echo=F, eval=T, fig.width=3.3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+funnel_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(quarter == max(quarter, na.rm=T)) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2)
+
+funnel_plot1 <- funnel_plot_format_function(funnel_plot) 
+funnel_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+   **Conversion (%)**
+   
+```{r in2 au customers, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+time_plot <- data_tot %>%
+  dplyr::filter(Category=="Insurances") %>%
+  dplyr::filter(country==str_extract("![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia", '\\b\\w+$')) %>%
+  dplyr::filter(NewvsCurrent=="Customer") %>%
+  dplyr::filter(rank_order==2) %>%
+  dplyr::filter(quarter > max(quarter)-1)
+
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
