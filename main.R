@@ -41,8 +41,6 @@ library(bslib)
 #library(stdlib.h)
 
 
-
-
 source("functions/funnel_plot_format_function.R")
 source("functions/time_plot_format_function.R")
 source("functions/post_stamp_function.R")
@@ -58,12 +56,12 @@ rmarkdown::render("/Users/xo21bm/Documents/conversion_reporting/inst/rmarkdown/t
 
 ### Open data ###
 
-IT <- read_excel("~/Documents/reporting_conversion/data/CRO_data_request_Q22022.xlsx", sheet="As_raw_as_possible")
+IT <- read_excel("~/Documents/conversion_reporting/data/CRO_data_request_Q22022.xlsx", sheet="As_raw_as_possible")
 
-DE_1 <- read_excel("~/Documents/reporting_conversion/data/CONV_INT_2021_Q2_Q3.xlsx", sheet="CONV_INT")
-DE_2 <- read_excel("~/Documents/reporting_conversion/data/CONV_INT_2021_Q4.xlsx", sheet="CONV_INT_Q4")
-DE_3 <- read_excel("~/Documents/reporting_conversion/data/Conv_int_2022_Q1.xlsx", sheet="CONV_INT_AGG")
-DE_4 <- read_excel("~/Documents/reporting_conversion/data/Conv_int_2022_Q2.xlsx", sheet="CONV_INT_AGG")
+DE_1 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q2_Q3.xlsx", sheet="CONV_INT")
+DE_2 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q4.xlsx", sheet="CONV_INT_Q4")
+DE_3 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q1.xlsx", sheet="CONV_INT_AGG")
+DE_4 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q2.xlsx", sheet="CONV_INT_AGG")
 DE <- dplyr::full_join(DE_1, DE_2)
 
 # File with start form + goal comepletion from Google analytics
@@ -79,40 +77,39 @@ DE <- dplyr::full_join(DE_1, DE_2)
 #RO3 <- dplyr::full_join(RO3_3, RO3_2)
 
 # file with category page, no split n2b & customer. Home bank, the secured environment. 
-RO_4 <- read_excel("~/Documents/reporting_conversion/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Products and Services")
-RO_5 <- read_excel("~/Documents/reporting_conversion/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Savings account")
-RO_6 <- read_excel("~/Documents/reporting_conversion/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Current account")
-
+RO_4 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Products and Services")
+RO_5 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Savings account")
+RO_6 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Current account")
 
 #Q3
 #PL1 <- read_excel("~/Documents/reporting_conversion/data/Kopia Draft_CRO_data_request_feedback_included (002).xlsx", sheet ="As_raw_as_possible")
-PL_IP3 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_inv_conv20213xlsx.xlsx", sheet ="visits")
+PL_IP3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_inv_conv20213xlsx.xlsx", sheet ="visits")
 
 #PL_try <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_inv_conv20214.xlsx", sheet ="visits")
 
 #PL <- bind_rows(PL1, PL_IP)
 
 #Q4
-PL <- read_excel("~/Documents/reporting_conversion/data/Kopia Draft_CRO_data_request_feedback_included (002).xlsx", sheet ="As_raw_as_possible")
-PL_IP <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_inv_conv20214.xlsx", sheet ="visits")
-PL_UL <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_unscrd_lending20214.xlsx", sheet ="visits")
-PL_SA <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_sav_conv20214.xlsx", sheet ="visits")
-PL_CA <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ca_conv20214.xlsx", sheet ="visits")
-PL_IN <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ins_conv20214.xlsx", sheet ="visits")
+PL <- read_excel("~/Documents/conversion_reporting/data/Kopia Draft_CRO_data_request_feedback_included (002).xlsx", sheet ="As_raw_as_possible")
+PL_IP <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_inv_conv20214.xlsx", sheet ="visits")
+PL_UL <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_unscrd_lending20214.xlsx", sheet ="visits")
+PL_SA <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_sav_conv20214.xlsx", sheet ="visits")
+PL_CA <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ca_conv20214.xlsx", sheet ="visits")
+PL_IN <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ins_conv20214.xlsx", sheet ="visits")
 
 #Q1
-PL_IP_1 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_inv_conv20221.xlsx", sheet ="visits")
-PL_UL_1 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_unscrd_lending20221.xlsx", sheet ="visits")
-PL_SA_1 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_sav_conv20221.xlsx", sheet ="visits")
-PL_CA_1 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ca_conv20221.xlsx", sheet ="visits")
-PL_IN_1 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ins_conv20221.xlsx", sheet ="visits")
+PL_IP_1 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_inv_conv20221.xlsx", sheet ="visits")
+PL_UL_1 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_unscrd_lending20221.xlsx", sheet ="visits")
+PL_SA_1 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_sav_conv20221.xlsx", sheet ="visits")
+PL_CA_1 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ca_conv20221.xlsx", sheet ="visits")
+PL_IN_1 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ins_conv20221.xlsx", sheet ="visits")
 
 #Q2
-PL_IP_2 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_inv_conv20222.xlsx", sheet ="visits")
-PL_UL_2 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_unscrd_lending20222.xlsx", sheet ="visits")
-PL_SA_2 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_sav_conv20222.xlsx", sheet ="visits")
-PL_CA_2 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ca_conv20222.xlsx", sheet ="visits")
-PL_IN_2 <- read_excel("~/Documents/reporting_conversion/data/cnv_visits_sum_ins_conv20222.xlsx", sheet ="visits")
+PL_IP_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_inv_conv20222.xlsx", sheet ="visits")
+PL_UL_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_unscrd_lending20222.xlsx", sheet ="visits")
+PL_SA_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_sav_conv20222.xlsx", sheet ="visits")
+PL_CA_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ca_conv20222.xlsx", sheet ="visits")
+PL_IN_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ins_conv20222.xlsx", sheet ="visits")
 
 PL_IP <- dplyr::full_join(PL_IP, PL_IP_1)
 PL_UL <- dplyr::full_join(PL_UL, PL_UL_1)
@@ -132,47 +129,51 @@ PL <- dplyr::full_join(PL, PL_CA)
 PL <- dplyr::full_join(PL, PL_IN)
 PL <- dplyr::full_join(PL, PL_IP3)
 
-SP <- read_excel("~/Documents/reporting_conversion/data/Draft_CRO_data_request_feedback_included_VF.xlsx", sheet ="As_raw_as_possible")
-BE_1 <- read_excel("~/Documents/reporting_conversion/data/CRO BE data.xlsx", sheet ="BE CRO data")
+SP <- read_excel("~/Documents/conversion_reporting/data/Draft_CRO_data_request_feedback_included_VF.xlsx", sheet ="As_raw_as_possible")
+BE_1 <- read_excel("~/Documents/conversion_reporting/data/CRO BE data.xlsx", sheet ="BE CRO data")
 BE_1$`Month of Year` <- BE_1$`Month Year`
 BE_1$`Month Year` <- NULL
 BE_1$`Device Type` <- BE_1$`Device type`
 BE_1$`Device type` <- NULL
 
-BE_2 <- read_excel("~/Documents/reporting_conversion/data/CRO data BE Q4 21.xlsx")
+BE_2 <- read_excel("~/Documents/conversion_reporting/data/CRO data BE Q4 21.xlsx")
 # plus data Q1
-BE_3 <- read_excel("~/Documents/reporting_conversion/data/CRO Data BE Q1 2022.xlsx")
+BE_3 <- read_excel("~/Documents/conversion_reporting/data/CRO Data BE Q1 2022.xlsx")
 
-BE_4 <- read_excel("~/Documents/reporting_conversion/data/CRO Data BE Q2 22.xlsx")
+BE_4 <- read_excel("~/Documents/conversion_reporting/data/CRO Data BE Q2 22.xlsx")
 
 BE <- dplyr::full_join(BE_1, BE_2)
 BE <- dplyr::full_join(BE, BE_3)
 BE <- dplyr::full_join(BE, BE_4)
 
+### NL file
+
+NL <- read_excel("~/Documents/conversion_reporting/data/NL_test.xlsx")
+
+
 ###
-AUS <- read_excel("~/Documents/reporting_conversion/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Page Reference Data")
+AUS <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Page Reference Data")
 
-AUS1 <- read_excel("~/Documents/reporting_conversion/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - Desktop")
-AUS2 <- read_excel("~/Documents/reporting_conversion/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - All Devices")
-AUS3 <- read_excel("~/Documents/reporting_conversion/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Mobile App")
+AUS1 <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - Desktop")
+AUS2 <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - All Devices")
+AUS3 <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Mobile App")
 
-AUS4 <- read_csv("~/Documents/reporting_conversion/data/Aus_Report_desktop_Q4.csv")
-AUS5 <- read_csv("~/Documents/reporting_conversion/data/Aus_Report_app_Q4.csv")
-AUS6 <- read_csv("~/Documents/reporting_conversion/data/Aus_Report_mobile_Q4.csv")
+AUS4 <- read_csv("~/Documents/conversion_reporting/data/Aus_Report_desktop_Q4.csv")
+AUS5 <- read_csv("~/Documents/conversion_reporting/data/Aus_Report_app_Q4.csv")
+AUS6 <- read_csv("~/Documents/conversion_reporting/data/Aus_Report_mobile_Q4.csv")
 
-AUS7 <- read_excel("~/Documents/reporting_conversion/data/Report_desktop.xlsx", sheet ="Report_desktop")
+AUS7 <- read_excel("~/Documents/conversion_reporting/data/Report_desktop.xlsx", sheet ="Report_desktop")
 AUS7$Quarter <- "1rst Quarter 2022"
-AUS8 <- read_excel("~/Documents/reporting_conversion/data/Report_mobileapp.xlsx", sheet ="Report_mobileapp")
+AUS8 <- read_excel("~/Documents/conversion_reporting/data/Report_mobileapp.xlsx", sheet ="Report_mobileapp")
 AUS8$Quarter <- "1rst Quarter 2022"
-AUS9 <- read_excel("~/Documents/reporting_conversion/data/Report_mobileweb.xlsx", sheet ="Report_mobileweb")
+AUS9 <- read_excel("~/Documents/conversion_reporting/data/Report_mobileweb.xlsx", sheet ="Report_mobileweb")
 AUS9$Quarter <- "1rst Quarter 2022"
 
-
-AUS10 <- read_excel("~/Documents/reporting_conversion/data/aus_desktop.xlsx")
+AUS10 <- read_excel("~/Documents/conversion_reporting/data/aus_desktop.xlsx")
 AUS10$Quarter <- "2nd Quarter 2022"
-AUS11 <- read_excel("~/Documents/reporting_conversion/data/aus_mobile_app.xlsx")
+AUS11 <- read_excel("~/Documents/conversion_reporting/data/aus_mobile_app.xlsx")
 AUS11$Quarter <- "2nd Quarter 2022"
-AUS12 <- read_excel("~/Documents/reporting_conversion/data/aus_mobile_web.xlsx")
+AUS12 <- read_excel("~/Documents/conversion_reporting/data/aus_mobile_web.xlsx")
 AUS12$Quarter <- "2nd Quarter 2022"
 
 # first step is connect data per device with each other
@@ -188,9 +189,6 @@ AUS2 <- dplyr::full_join(AUS2, AUS12)
 AUS3 <- dplyr::full_join(AUS3, AUS5)
 AUS3 <- dplyr::full_join(AUS3, AUS8)
 AUS3 <- dplyr::full_join(AUS3, AUS11)
-
-
-###
 
 # AUS4 is reference table!
 AUS4 <- AUS %>%
