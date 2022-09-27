@@ -1291,6 +1291,17 @@ IT2$country <- "Italy"
 
 ### NL snippet for mortgages
 
+NL2 <- NL %>%
+  dplyr::mutate(
+    date = str_c(YEAR, "-", MONTH)
+  ) %>%
+  dplyr::mutate(
+    quarter = as.yearqtr(date, format = "%Y-%m")
+  ) %>% 
+  dplyr::mutate(
+    TYPE 
+  )
+
 
 
 ########### Combine and cross analysis ################
