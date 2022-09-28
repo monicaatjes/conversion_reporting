@@ -1298,9 +1298,39 @@ NL2 <- NL %>%
   dplyr::mutate(
     quarter = as.yearqtr(date, format = "%Y-%m")
   ) %>% 
+  dplyr::select(quarter, CATEGORY, TYPE, TOTAL) %>%
+  dplyr::filter(TYPE=="Acquisition_page"| TYPE=="Product_detail_pages" |TYPE =="Funnel_starts"| TYPE=="Centraal"|
+                  TYPE=="Acquisition_pages" ) %>%
+  dplyr::group_by(quarter, TYPE) %>%
   dplyr::mutate(
-    TYPE 
+    total = case_when(TYPE =="Centraal" ~ sum(TOTAL),
+                            TRUE ~ TOTAL)
+  ) %>%
+  dplyr::filter(CATEGORY !="Hypotheek Starter" & CATEGORY !="Hypotheek Oversluiter") %>%
+  dplyr::select(-"TOTAL", -"CATEGORY") %>%
+  dplyr::group_by(quarter, TYPE) %>%
+  dplyr::mutate(page_type = case_when(
+    TYPE =="Acquisition_page" |TYPE=="Acquisition_pages" ~ "Category page",
+    TYPE=="Product_detail_pages" ~ "Product page",
+    TYPE=="Funnel_starts" ~"Start flow",
+    TYPE=="Centraal" ~ "Finish flow"
+  )) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(-"TYPE") %>%
+  dplyr::group_by(quarter, page_type) %>%
+  dplyr::mutate(
+    total =sum(total)
+  ) %>%
+  unique() %>%
+  tidyr::spread(page_type, total) %>%
+  dplyr::ungroup() %>%
+  dplyr::mutate(
+    Country ="The Netherlands",
+    Product ="Mortgages",
+    Category="Mortgages"
   )
+  
+
 
 
 
