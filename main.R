@@ -77,9 +77,9 @@ DE <- dplyr::full_join(DE_1, DE_2)
 #RO3 <- dplyr::full_join(RO3_3, RO3_2)
 
 # file with category page, no split n2b & customer. Home bank, the secured environment. 
-RO_4 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Products and Services")
-RO_5 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Savings account")
-RO_6 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_07152022.xlsx", sheet ="Current account")
+RO_4 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_100122.xlsx", sheet ="Products and Services")
+RO_5 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_100122.xlsx", sheet ="Savings account")
+RO_6 <- read_excel("~/Documents/conversion_reporting/data/Adobe Analytics data - HomeBank_100122.xlsx", sheet ="Current account")
 
 #Q3
 #PL1 <- read_excel("~/Documents/reporting_conversion/data/Kopia Draft_CRO_data_request_feedback_included (002).xlsx", sheet ="As_raw_as_possible")
@@ -703,26 +703,9 @@ PO2$country <- "Poland"
 ### this is to have visits on home bank (closed domain)
 RO5 <- RO_4 %>%
   dplyr::mutate(
-    quarter = 
-      # let op deze case_when moet volgende x worden opgelost in de bron data 
-    case_when(
-        Quarter =="Q1" ~ paste("2022", Quarter, sep= " "),
-        TRUE ~ paste("2021", Quarter, sep= " ")
-      ) 
-  ) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarter)
-  ) %>%
-  dplyr::mutate(
-    date = case_when(
-      !is.na(Date) ~ as.yearqtr(Date, format = "%Y-%m-%d"))
-  ) %>%
-  dplyr::mutate(
-    quarter = case_when(
-      is.na(Date) ~ quarter,
-      TRUE ~ date
-    )
-  ) %>%
+    quarter = as.yearqtr(Date, format = "%Y-%m-%d")
+  ) %>% 
+  dplyr::filter(!is.na(quarter)) %>%
   dplyr::mutate(
     Category = case_when(
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
@@ -774,26 +757,9 @@ RO5 <- RO_4 %>%
 
 RO6 <- RO_4 %>%
   dplyr::mutate(
-    quarter = 
-      # let op deze case_when moet volgende x worden opgelost in de bron data 
-      case_when(
-        Quarter =="Q1" ~ paste("2022", Quarter, sep= " "),
-        TRUE ~ paste("2021", Quarter, sep= " ")
-      ) 
-  ) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarter)
-  ) %>%
-  dplyr::mutate(
-    date = case_when(
-      !is.na(Date) ~ as.yearqtr(Date, format = "%Y-%m-%d"))
-  ) %>%
-  dplyr::mutate(
-    quarter = case_when(
-      is.na(Date) ~ quarter,
-      TRUE ~ date
-    )
-  ) %>%
+      quarter = as.yearqtr(Date, format = "%Y-%m-%d")
+    ) %>% 
+      dplyr::filter(!is.na(quarter)) %>%
   dplyr::mutate(
     Category = case_when(
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
@@ -849,28 +815,9 @@ RO7 <- dplyr::left_join(RO6, RO5, by=c("quarter", "Category", "Product"))
 ## Adobe, homebank, savings with flow steps
 RO_51 <- RO_5 %>%
   dplyr::mutate(
-  quarterz = 
-  # let op deze case_when moet volgende x worden opgelost in de bron data 
-  case_when(
-    is.na(...8) & Quarter =="Q1"~ paste("2022", Quarter, sep= " "),
-    TRUE ~ paste("2021", Quarter, sep= " ")
-  )) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarterz)
-  ) %>%
-  dplyr::mutate(
-    Quarter= as.yearqtr(...8, format = "%Y-%m-%d")
-  ) %>%
-  dplyr::mutate(
-    quarter = 
-      case_when(
-        is.na(as.character(Quarter)) ~ quarterz,
-        TRUE ~ as.character(Quarter)
-      ) 
-  ) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarter)
-  ) %>%
+      quarter = as.yearqtr(`...8`, format = "%Y-%m-%d")
+    ) %>% 
+      dplyr::filter(!is.na(quarter)) %>%
   dplyr::mutate(
     Category = case_when(
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
@@ -923,30 +870,11 @@ RO_51 <- RO_5 %>%
 
 ## Adobe, current accounts with flow steps
 RO_61 <- RO_6 %>%
+  dplyr::mutate(
+    quarter = as.yearqtr(`...8`, format = "%Y-%m-%d")
+  ) %>% 
+  dplyr::filter(!is.na(quarter)) %>%
   dplyr::select( -...9, -...10, -...11, -...12) %>%
-  dplyr::mutate(
-    quarterz = 
-      # let op deze case_when moet volgende x worden opgelost in de bron data 
-      case_when(
-        is.na(...8) & Quarter =="Q1"~ paste("2022", Quarter, sep= " "),
-        TRUE ~ paste("2021", Quarter, sep= " ")
-      )) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarterz)
-  ) %>%
-  dplyr::mutate(
-    Quarter= as.yearqtr(...8, format = "%Y-%m-%d")
-  ) %>%
-  dplyr::mutate(
-    quarter = 
-      case_when(
-        is.na(as.character(Quarter)) ~ quarterz,
-        TRUE ~ as.character(Quarter)
-      ) 
-  ) %>%
-  dplyr::mutate(
-    quarter = as.yearqtr(quarter)
-  ) %>%
   dplyr::mutate(
     Category = case_when(
       str_detect(Category, "Current|Payment|Pay|Accounts") ~ "Current accounts",
