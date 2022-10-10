@@ -61,7 +61,8 @@ IT <- read_excel("~/Documents/conversion_reporting/data/CRO_data_request_Q22022.
 DE_1 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q2_Q3.xlsx", sheet="CONV_INT")
 DE_2 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q4.xlsx", sheet="CONV_INT_Q4")
 DE_3 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q1.xlsx", sheet="CONV_INT_AGG")
-DE_4 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q2.xlsx", sheet="CONV_INT_AGG")
+#DE_4 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q2.xlsx", sheet="CONV_INT_AGG")
+DE_4 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_AGG_2022_Q3.xlsx", sheet="CONV_INT_AGG")
 DE <- dplyr::full_join(DE_1, DE_2)
 
 # File with start form + goal comepletion from Google analytics
@@ -142,9 +143,12 @@ BE_3 <- read_excel("~/Documents/conversion_reporting/data/CRO Data BE Q1 2022.xl
 
 BE_4 <- read_excel("~/Documents/conversion_reporting/data/CRO Data BE Q2 22.xlsx")
 
+BE_5 <- read_excel("~/Documents/conversion_reporting/data/CRO Data BE Q3 22.xlsx")
+
 BE <- dplyr::full_join(BE_1, BE_2)
 BE <- dplyr::full_join(BE, BE_3)
 BE <- dplyr::full_join(BE, BE_4)
+BE <- dplyr::full_join(BE, BE_5)
 
 ### NL file
 
@@ -347,6 +351,11 @@ BE_try <- BE %>%
       `Month of Year`=="April" ~ "April 2022",
       `Month of Year`=="May" ~ "May 2022",
       `Month of Year`=="June" ~ "June 2022",
+      `Month of Year`=="July" ~ "July 2022",
+      `Month of Year`=="August" ~ "August 2022",
+      `Month of Year`=="September" ~ "September 2022",
+      
+      
       TRUE ~ `Month of Year`
       )
   ) %>%
@@ -375,7 +384,7 @@ transBE1 <- transBE1 %>%
    Level = sub(".*- ", "", product_level)
   ) %>%
   dplyr::select(-product_level) %>%
-  tidyr::gather(device, visits, Desktop:Tablet.11, factor_key=T) %>%
+  tidyr::gather(device, visits, Desktop:Tablet.14, factor_key=T) %>%
   dplyr::mutate(
     Device = case_when(
       str_detect(device, "Desktop|desktop") ~ "Desktop",
@@ -398,7 +407,7 @@ transBE2 <- transBE2 %>%
   ) %>%
   dplyr::select(-product_level) %>%
   # ADD THE ADDITIONAL COLUMNS HERE!!!
-  tidyr::gather(quarter, visits, `2021 Q3`:`2022 Q2.8`, factor_key=T) 
+  tidyr::gather(quarter, visits, `2021 Q3`:`2022 Q3.8`, factor_key=T) 
 
 transBE <- dplyr::left_join(transBE1, transBE2)
 
