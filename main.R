@@ -56,7 +56,7 @@ rmarkdown::render("/Users/xo21bm/Documents/conversion_reporting/inst/rmarkdown/t
 
 ### Open data ###
 
-IT <- read_excel("~/Documents/conversion_reporting/data/CRO_data_request_Q22022.xlsx", sheet="As_raw_as_possible")
+IT <- read_excel("~/Documents/conversion_reporting/data/CRO_data_request_Q32022.xlsx", sheet="As_raw_as_possible")
 
 DE_1 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q2_Q3.xlsx", sheet="CONV_INT")
 DE_2 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q4.xlsx", sheet="CONV_INT_Q4")
