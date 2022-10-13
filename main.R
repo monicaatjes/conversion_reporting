@@ -62,7 +62,7 @@ DE_1 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q2_Q3.xl
 DE_2 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_2021_Q4.xlsx", sheet="CONV_INT_Q4")
 DE_3 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q1.xlsx", sheet="CONV_INT_AGG")
 #DE_4 <- read_excel("~/Documents/conversion_reporting/data/Conv_int_2022_Q2.xlsx", sheet="CONV_INT_AGG")
-DE_4 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_AGG_2022_Q3.xlsx", sheet="CONV_INT_AGG")
+DE_4 <- read_excel("~/Documents/conversion_reporting/data/CONV_INT_AGG_2022_Q3_update.xlsx", sheet="CONV_INT_AGG")
 DE <- dplyr::full_join(DE_1, DE_2)
 
 # File with start form + goal comepletion from Google analytics
@@ -112,6 +112,13 @@ PL_SA_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_sav_
 PL_CA_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ca_conv20222.xlsx", sheet ="visits")
 PL_IN_2 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ins_conv20222.xlsx", sheet ="visits")
 
+#Q3
+PL_IP_3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_inv_conv20223.xlsx", sheet ="visits")
+PL_UL_3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_unscrd_lending20223.xlsx", sheet ="visits")
+PL_SA_3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_sav_conv20223.xlsx", sheet ="visits")
+PL_CA_3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ca_conv20223.xlsx", sheet ="visits")
+PL_IN_3 <- read_excel("~/Documents/conversion_reporting/data/cnv_visits_sum_ins_conv20223.xlsx", sheet ="visits")
+
 PL_IP <- dplyr::full_join(PL_IP, PL_IP_1)
 PL_UL <- dplyr::full_join(PL_UL, PL_UL_1)
 PL_SA <- dplyr::full_join(PL_SA, PL_SA_1)
@@ -123,6 +130,12 @@ PL_UL <- dplyr::full_join(PL_UL, PL_UL_2)
 PL_SA <- dplyr::full_join(PL_SA, PL_SA_2)
 PL_IN <- dplyr::full_join(PL_IN, PL_IN_2)
 PL_CA <- dplyr::full_join(PL_CA, PL_CA_2)
+
+PL_IP <- dplyr::full_join(PL_IP, PL_IP_3)
+PL_UL <- dplyr::full_join(PL_UL, PL_UL_3)
+PL_SA <- dplyr::full_join(PL_SA, PL_SA_3)
+PL_IN <- dplyr::full_join(PL_IN, PL_IN_3)
+PL_CA <- dplyr::full_join(PL_CA, PL_CA_3)
 
 PL <- dplyr::full_join(PL_IP, PL_UL)
 PL <- dplyr::full_join(PL, PL_SA)
@@ -729,8 +742,8 @@ RO5 <- RO_4 %>%
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
       str_detect(Category, "Invest|IP|Mutual") ~ "Investment products",
       str_detect(Category, "Savings|Save") ~ "Savings",
-      str_detect(Category, "Mortgage") ~ "Mortgages",
-      str_detect(Category, "Lending|lending|Loan") ~ "Unsecured lending",
+      str_detect(Product, "Mortgage|ING New Home") ~ "Mortgages",
+      str_detect(Product, "Lending|lending|Credit|ING Personal") ~ "Unsecured lending",
       str_detect(Category, "insurance|Insurance") ~ "Insurances",
       str_detect(Category, "other") ~ "Other"
     )
@@ -749,7 +762,7 @@ RO5 <- RO_4 %>%
       str_detect(Product, "Card Complet") ~ "Current accounts",
       str_detect(Product, "ING Gold Card") ~ "Current accounts",
       str_detect(Product, "ING Credit Card") ~ "Credit Card",
-      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa") ~ "Mortgage Loan",
+      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa|ING New Home") ~ "Mortgage Loan",
       str_detect(Product, "ING Savings") ~ "Savings",
       str_detect(Product, "ING Deposit") ~ "Deposits",
       str_detect(Product, "Personal Loan") ~ "ING Personal",
@@ -783,8 +796,8 @@ RO6 <- RO_4 %>%
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
       str_detect(Category, "Invest|IP|Mutual") ~ "Investment products",
       str_detect(Category, "Savings|Save") ~ "Savings",
-      str_detect(Category, "Mortgage") ~ "Mortgages",
-      str_detect(Category, "Lending|lending|Loan") ~ "Unsecured lending",
+      str_detect(Product, "Mortgage|ING New Home") ~ "Mortgages",
+      str_detect(Product, "Lending|lending|Credit|ING Personal") ~ "Unsecured lending",
       str_detect(Category, "insurance|Insurance") ~ "Insurances",
       str_detect(Category, "other") ~ "Other"
     )
@@ -803,7 +816,7 @@ RO6 <- RO_4 %>%
       str_detect(Product, "Card Complet") ~ "Current accounts",
       str_detect(Product, "ING Gold Card") ~ "Current accounts",
       str_detect(Product, "ING Credit Card") ~ "Credit Card",
-      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa") ~ "Mortgage Loan",
+      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa|ING New Home") ~ "Mortgage Loan",
       str_detect(Product, "ING Savings") ~ "Savings",
       str_detect(Product, "Personal Loan") ~ "ING Personal",
       str_detect(Product, "ING Deposit") ~ "Deposits",
@@ -841,8 +854,8 @@ RO_51 <- RO_5 %>%
       str_detect(Category, "Current|Payment|Pay") ~ "Current accounts",
       str_detect(Category, "Invest|IP|Mutual") ~ "Investment products",
       str_detect(Category, "Savings|Save") ~ "Savings",
-      str_detect(Category, "Mortgage") ~ "Mortgages",
-      str_detect(Category, "Lending|lending|Loan") ~ "Unsecured lending",
+      str_detect(Product, "Mortgage|ING New Home") ~ "Mortgages",
+      str_detect(Product, "Lending|lending|Credit|ING Personal") ~ "Unsecured lending",
       str_detect(Category, "insurance|Insurance") ~ "Insurances",
       str_detect(Category, "other") ~ "Other"
     )
@@ -895,11 +908,11 @@ RO_61 <- RO_6 %>%
   dplyr::select( -...9, -...10, -...11, -...12) %>%
   dplyr::mutate(
     Category = case_when(
-      str_detect(Category, "Current|Payment|Pay|Accounts") ~ "Current accounts",
+      str_detect(Category, "Current|Payment|Pay|Account") ~ "Current accounts",
       str_detect(Category, "Invest|IP|Mutual") ~ "Investment products",
       str_detect(Category, "Savings|Save") ~ "Savings",
-      str_detect(Category, "Mortgage") ~ "Mortgages",
-      str_detect(Category, "Lending|lending|Loan") ~ "Unsecured lending",
+      str_detect(Product, "Mortgage|ING New Home") ~ "Mortgages",
+      str_detect(Product, "Lending|lending|Credit|ING Personal") ~ "Unsecured lending",
       str_detect(Category, "insurance|Insurance") ~ "Insurances",
       str_detect(Category, "other") ~ "Other"
     )
@@ -938,13 +951,16 @@ RO_61 <- RO_6 %>%
   dplyr::summarise(
     visits = sum(`Sessions (Adobe Analytics)`)
   ) %>%
-  tidyr::spread(`Page path`, visits) %>%
-  dplyr::rename(
-    "Start application" = `HB/Account opening (flow start)`,
-    "Finish application" = `HB/Account opening conversion type 1`
+  tidyr::spread(`Page path`, visits)  %>%
+  dplyr::mutate(
+    `Finish application` = `HB/Account opening conversion type 1` + `HB/Account opening conversion type 2`
   ) %>%
-  dplyr::select(-`HB/Account opening conversion type 2`)
-
+  dplyr::rename(
+    "Start application" = `HB/Account opening (flow start)`
+  ) %>%
+  dplyr::select(-`HB/Account opening conversion type 1`, -`HB/Account opening conversion type 2`)
+  
+  
 # Combine both files: start and finish for savings and current accounts
 
 RO_sav_complete1 <- dplyr::full_join(RO_61, RO_51) %>%
