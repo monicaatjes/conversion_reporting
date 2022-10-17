@@ -48,7 +48,7 @@ source("functions/post_stamp_function_option2.R")
 source("functions/tab_function.R")
 
 ### Render HTML ###
-
+rmarkdown::render("/Users/xo21bm/Documents/conversion_reporting/draft_Q3_time.Rmd", output_file = "draft_Q3_time.html")
 rmarkdown::render("/Users/xo21bm/Documents/conversion_reporting/draft_Q22_time.Rmd", output_file = "draft_Q2_time.html")
 rmarkdown::render("/Users/xo21bm/Documents/conversion_reporting/draft_Q2_Italy.Rmd", output_file = "draft_Q1_IT.html")
 
@@ -194,7 +194,7 @@ AUS11$Quarter <- "2nd Quarter 2022"
 AUS12 <- read_excel("~/Documents/conversion_reporting/data/aus_mobile_web.xlsx")
 AUS12$Quarter <- "2nd Quarter 2022"
 
-AUS14 <- read_csv("~/Documents/conversion_reporting/data/aus_desktop_Q3.csv")
+AUS14 <- read_csv("~/Documents/conversion_reporting/data/aus_desktop_q3.csv")
 AUS15 <- read_csv("~/Documents/conversion_reporting/data/aus_mobile_app_Q3.csv")
 AUS16 <- read_csv("~/Documents/conversion_reporting/data/aus_mobile_web_Q3.csv")
 AUS16$Quarter <- "3rd Quarter 2022"
@@ -225,7 +225,7 @@ AUS4 <- AUS %>%
   )
 
 # quarters are already combined per device. Next step is to add the 3 devices together
-AUS1 <- AUS1
+#AUS1 <- AUS1
 AUS1$device <- "Desktop"
 AUS2$device <- "Mobile web"
 AUS3$device <- "Mobile app"
@@ -762,10 +762,11 @@ RO5 <- RO_4 %>%
       str_detect(Product, "Card Complet") ~ "Current accounts",
       str_detect(Product, "ING Gold Card") ~ "Current accounts",
       str_detect(Product, "ING Credit Card") ~ "Credit Card",
-      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa|ING New Home") ~ "Mortgage Loan",
+      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa") ~ "Mortgage Loan",
+      str_detect(Product, "ING New Home") ~ "ING New Home",
       str_detect(Product, "ING Savings") ~ "Savings",
       str_detect(Product, "ING Deposit") ~ "Deposits",
-      str_detect(Product, "Personal Loan") ~ "ING Personal",
+      str_detect(Product, "Personal Loan|ING Personal") ~ "ING Personal",
       str_detect(Product, "Mutual") ~ "Mutual Funds",
       TRUE ~ Product
     )
@@ -816,10 +817,11 @@ RO6 <- RO_4 %>%
       str_detect(Product, "Card Complet") ~ "Current accounts",
       str_detect(Product, "ING Gold Card") ~ "Current accounts",
       str_detect(Product, "ING Credit Card") ~ "Credit Card",
-      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa|ING New Home") ~ "Mortgage Loan",
+      str_detect(Product, "ING Credit de investitii|ING Credit Ipotecar|ING Prima Casa") ~ "Mortgage Loan",
+      str_detect(Product, "ING New Home") ~ "ING New Home",
       str_detect(Product, "ING Savings") ~ "Savings",
-      str_detect(Product, "Personal Loan") ~ "ING Personal",
       str_detect(Product, "ING Deposit") ~ "Deposits",
+      str_detect(Product, "Personal Loan|ING Personal") ~ "ING Personal",
       str_detect(Product, "Mutual") ~ "Mutual Funds",
       TRUE ~ Product
     )
@@ -1446,3 +1448,11 @@ rm(AU2, AUS_try, AUS1, AUS10, AUS2, AUS3, AUS4, AUS5, AUS6, AUS7, AUS8, AUS9, Au
 rm(AU11, AUS12, Aussie1, Aussie2, BE, BE_1, BE_2, BE_3, BE_4, BE_try, BE2, DE, DE_1, DE_2)
 rm(AU2, AUS_try, AUS1, AUS10, AUS2, AUS3, AUS4, AUS5, AUS5, AUS6, AUS7, AUS8, AUS9, Aussie)
 rm(x)
+
+
+
+### Slice and dice overview with trends
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", country=="Italy", rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
