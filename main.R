@@ -40,7 +40,7 @@ library(xfun)
 library(bslib)
 #library(stdlib.h)
 
-
+source("functions/trend_plot_format_function.R")
 source("functions/funnel_plot_format_function.R")
 source("functions/time_plot_format_function.R")
 source("functions/post_stamp_function.R")
@@ -143,7 +143,7 @@ PL <- dplyr::full_join(PL, PL_CA)
 PL <- dplyr::full_join(PL, PL_IN)
 PL <- dplyr::full_join(PL, PL_IP3)
 
-SP <- read_excel("~/Documents/conversion_reporting/data/Draft_CRO_data_request_feedback_included_VF.xlsx", sheet ="As_raw_as_possible")
+SP <- read_excel("~/Documents/conversion_reporting/data/Draft_CRO_data_request_feedback_included_VF2.xlsx", sheet ="As_raw_as_possible")
 BE_1 <- read_excel("~/Documents/conversion_reporting/data/CRO BE data.xlsx", sheet ="BE CRO data")
 BE_1$`Month of Year` <- BE_1$`Month Year`
 BE_1$`Month Year` <- NULL
@@ -195,7 +195,9 @@ AUS12 <- read_excel("~/Documents/conversion_reporting/data/aus_mobile_web.xlsx")
 AUS12$Quarter <- "2nd Quarter 2022"
 
 AUS14 <- read_csv("~/Documents/conversion_reporting/data/aus_desktop_q3.csv")
+AUS14$Quarter <- "3rd Quarter 2022"
 AUS15 <- read_csv("~/Documents/conversion_reporting/data/aus_mobile_app_Q3.csv")
+AUS15$Quarter <- "3rd Quarter 2022"
 AUS16 <- read_csv("~/Documents/conversion_reporting/data/aus_mobile_web_Q3.csv")
 AUS16$Quarter <- "3rd Quarter 2022"
 
