@@ -1514,18 +1514,10 @@ time_plot1
 <div class="row">
   <div class="col-md-3" markdown="1">
   
-  **N2B**
+ 
 ```{r trend n2b s ge, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
 
-trend_overview <- data_tot %>%
-  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
-  dplyr::filter(Category=="Savings", 
-                country=="Germany", 
-                rank_order==1,
-                NewvsCurrent =="N2B") %>%
-  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
-trend_plot1 <- trend_plot_format_function(trend_overview) 
-trend_plot1
+
 
 ```
 
@@ -3341,6 +3333,66 @@ time_plot1
  </div> 
 </div>
 
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B & customer** 
+  
+```{r trend cus mo ro, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Mortgages", 
+                country=="Romania", 
+                Product =="Mortgage Loan") %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr mo ro, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+
+   
+```{r tr mo ro cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr mo ro t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ### **Current Accounts_top1: CA** ###
 <div class="row">
@@ -3428,6 +3480,66 @@ time_plot1
  </div> 
 </div>
 
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B & customer** 
+  
+```{r trend cus s ro, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Savings", 
+                country=="Romania", 
+                Product =="Deposits") %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr s ro, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+
+   
+```{r tr s ro cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr s ro t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 ### **Investment products_top1: Mutual funds** ###
 <div class="row">
   <div class="col-md-3" markdown="1">
@@ -3463,6 +3575,66 @@ time_plot <- data_tot %>%
 
 time_plot1 <- time_plot_format_function(time_plot)
 time_plot1
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B & customer** 
+  
+```{r trend cus ip ro, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", 
+                country=="Romania", 
+                Product =="Mutual Funds") %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ip ro, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+
+   
+```{r tr ip ro cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr ip ro t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
 
 ```
 <br>
@@ -3558,6 +3730,67 @@ time_plot1
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B & customer** 
+  
+```{r trend cus ul ro, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Unsecured lending", 
+                country=="Romania", 
+                Product =="ING Personal") %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ul ro, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+
+   
+```{r tr ul ro cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr ul ro t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 
 ##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/PO.png) Poland
@@ -5445,6 +5678,73 @@ time_plot1
  </div> 
 </div>
 
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B + customer** 
+  
+```{r trend cus ca BE, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Current accounts", 
+                country=="Belgium", 
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ca be, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **N2B + customer** 
+   
+```{r tr ca be cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Current accounts", 
+                country=="Belgium", 
+                rank_order==2) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr ca be t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 ### **Savings_top1: Green savings**
 <div class="row">
   <div class="col-md-3" markdown="1">
@@ -5525,6 +5825,73 @@ time_plot1
 
 ```
 
+<br>
+
+
+ </div> 
+</div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B + customer** 
+  
+```{r trend cus s BE, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Savings", 
+                country=="Belgium", 
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr s be, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **N2B + customer** 
+   
+```{r tr s be cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Savings", 
+                country=="Belgium", 
+                rank_order==2) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr s be t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
 <br>
 
 
@@ -5615,6 +5982,74 @@ time_plot1
  </div> 
 </div>
 
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B + customer** 
+  
+```{r trend cus ip BE, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", 
+                country=="Belgium", 
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ip be, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **N2B + customer** 
+   
+```{r tr ip be cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", 
+                country=="Belgium", 
+                rank_order==2) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr ip be t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
 ### **Unsecured lending_top1: Credit card**
 <div class="row">
   <div class="col-md-3" markdown="1">
@@ -5700,6 +6135,75 @@ time_plot1
  </div> 
 </div>
 
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B + customer** 
+  
+```{r trend cus ul BE, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Unsecured lending", 
+                country=="Belgium", 
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ul be, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **N2B + customer** 
+   
+```{r tr ul be cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Unsecured lending", 
+                country=="Belgium", 
+                rank_order==2) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr ul be t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
+
 ### **Insurances_top1: Lion assistance**
 <div class="row">
   <div class="col-md-3" markdown="1">
@@ -5780,6 +6284,74 @@ time_plot1
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B + customer** 
+  
+```{r trend cus in BE, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Insurances", 
+                country=="Belgium", 
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr in be, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **N2B + customer** 
+   
+```{r tr in be cus, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Insurances", 
+                country=="Belgium", 
+                rank_order==2) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+ 
+   
+```{r tr in be t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ##  ![](/Users/xo21bm/Documents/Lokaal/BAM2/exploration/notebooks/AUS.png) Australia
 
@@ -5887,7 +6459,7 @@ post_stamp_plot_p3 <- data_overviews_test_customer %>%
   dplyr::filter(NewvsCurrent=="Customer")
 
 post_stamp_plot_p3 <- post_stamp_function(post_stamp_plot_p3) 
-post_stamp_plot_p3
+#post_stamp_plot_p3
 ```
 
 </div>
@@ -5939,93 +6511,9 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1) 
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
 ```
 <br>
 
@@ -6064,93 +6552,9 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
 
 ```
 <br>
@@ -6158,6 +6562,75 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus m aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Mortgages", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr mo aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr au n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Mortgages", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus  t, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
+
 
 ### **Current accounts_top1 Orange Everyday**
 <div class="row">
@@ -6193,93 +6666,9 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
 
 ```
 <br>
@@ -6319,93 +6708,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -6413,6 +6717,74 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus ca aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Current accounts", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ca aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr aus n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Current accounts", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus  te, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ### **Savings_top1**
 <div class="row">
@@ -6448,93 +6820,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -6574,93 +6861,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -6668,6 +6870,74 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus s aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Savings", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr s aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr au s n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Savings", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus  s, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ### **Investment products_top1 Superannuation**
 <div class="row">
@@ -6703,93 +6973,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -6829,93 +7014,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -6923,6 +7023,74 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus ip aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ip aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr ip au n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Investment products", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus ip te, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ### **Unsecured lending_top1 Personal loan**
 <div class="row">
@@ -6958,93 +7126,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -7084,93 +7167,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -7178,6 +7176,74 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus ul aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Unsecured lending", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ul aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr ul au n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Unsecured lending", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus ul te, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 
 ### **Unsecured lending_top2 Credit card**
@@ -7214,93 +7280,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==2) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 ```
 <br>
 
@@ -7339,93 +7320,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==2) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -7469,93 +7365,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 ```
 <br>
 
@@ -7594,93 +7405,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==1) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
@@ -7688,6 +7414,74 @@ time_plot
 
  </div> 
 </div>
+
+**Traffic over time**
+
+<div class="row">
+  <div class="col-md-3" markdown="1">
+
+   **N2B** 
+  
+```{r trend cus ins aus, echo=FALSE, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Insurances", 
+                country=="Australia", 
+                NewvsCurrent =="N2B",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+  
+  
+   
+```{r tr ins aus, echo=FALSE, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align ="left"}
+
+
+```
+<br>
+
+
+ </div>
+  <div class="col-md-3" markdown="1">
+  
+   **Customers** 
+   
+```{r tr ins au n2b, echo=FALSE, echo=F, eval=T, fig.width=3.5, fig.height=3.5, warning=F, message=F, fig.align="left"}
+trend_overview <- data_tot %>%
+  dplyr::select(quarter, Category, Product, rank_order, country, Device, NewvsCurrent,  `Product page`) %>%
+  dplyr::filter(Category=="Insurances", 
+                country=="Australia", 
+                NewvsCurrent =="Customer",
+                rank_order==1) %>%
+  dplyr::select(quarter, Device, NewvsCurrent,  `Product page`)
+trend_plot1 <- trend_plot_format_function(trend_overview) 
+trend_plot1
+
+
+```
+
+</div>
+
+  <div class="col-md-3" markdown="1">
+
+```{r tr aus in te, echo=FALSE, echo=FALSE, echo=F, eval=T, fig.width=3, fig.height=3.5, warning=F, message=F, fig.align="left"}
+
+
+```
+<br>
+
+
+ </div> 
+</div>
+
 
 ### **Insurance_top2 Home and Contents**
 <div class="row">
@@ -7723,93 +7517,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==2) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 ```
 <br>
 
@@ -7848,93 +7557,8 @@ time_plot <- data_tot %>%
   dplyr::filter(rank_order==2) %>%
   dplyr::filter(quarter > max(quarter)-1)
 
-#time_plot1 <- time_plot_format_function(time_plot)
-#time_plot1
-
-x <- time_plot
-
-time_plot <- 
-  plot_ly(x = as.character(unique(x$quarter))) %>%
- # add_trace(y = ~x$con_1[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_1_Desktop",
-#            text = x$con_1[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(255,098,000)')) %>%
-  add_trace(y =~x$con_1[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_1_Mobile",
-            text = x$con_1[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(96,166,218)')) %>%
-#  add_trace(y =~x$con_2[x$Device=="Desktop"], 
-#            type='bar', 
-#            name="con_2_Desktop",
-#            text = x$con_2[x$Device=="Desktop"],
-#            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-#            texttemplate = '%{y}', textposition = 'outside',
-#            hoverinfo = 'text',
-#            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-#            marker = list(color = 'rgb(171,0,102)')) %>%
-  add_trace(y =~x$con_2[x$Device=="Mobile"], 
-            type='bar', name="con_2_Mobile",
-            text = x$con_2[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb 168, 168, 168')) %>%
-  #add_trace(y =~x$conv_tot[x$Device=="Desktop"], 
-  #          type='bar', 
-  #          name="con_tot_Desktop",
-  #          text = x$conv_tot[x$Device=="Desktop"],
-  #          hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-  #          texttemplate = '%{y}', textposition = 'outside',
-  #          hoverinfo = 'text',
-  #          textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-  #          marker = list(color = 'rgb(52,150,81)')) %>%
-  add_trace(y =~x$conv_tot[x$Device=="Mobile"], 
-            type='bar', 
-            name="con_tot_Mobile",
-            text = x$conv_tot[x$Device=="Mobile"],
-            hovertemplate = paste('%{x}', '<br>x$con_1: %{text}<br>'),
-            texttemplate = '%{y}', textposition = 'outside',
-            hoverinfo = 'text',
-            textfont = list(family = "ING me", color = 'rgb(105, 105, 105)', size = 14),
-            marker = list(color = 'rgb(82,81,153)')) %>%
-  layout(title = "",
-         xaxis = list(title = "",
-                      textfont = list(color = 'rgb(105, 105, 105)', size = 12, family = "ING me"),
-                      showline = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         yaxis = list(title = "",
-                      range =c(0,100),
-                      showticklabels = TRUE,
-                      linecolor = 'rgb(204, 204, 204)',
-                      linewidth = 2,
-                      # autotick = TRUE,
-                      # dtick = 10,
-                      ticks = 'inside',
-                      tickcolor = 'rgb(204, 204, 204)',
-                      # tickwidth = 1,
-                      # ticklen = 10,
-                      tickfont = list(family = "ING me",
-                                      size = 12,
-                                      color = 'rgb(105, 105, 105)')),
-         barmode = 'group',
-         legend =list(orientation = 'h', font = list(family = "ING me", size = 12, color = 'rgb(105, 105, 105)')))
-
-time_plot
+time_plot1 <- time_plot_format_function(time_plot)
+time_plot1
 
 ```
 <br>
