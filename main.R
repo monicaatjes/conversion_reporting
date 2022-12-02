@@ -1326,7 +1326,6 @@ data_tot <- data_tot %>%
 
 data_overviews <- data_tot %>%
   dplyr::arrange(quarter) %>%
-  
   dplyr::mutate(country = case_when(
     country=="The Netherlands" ~ "NL",
     TRUE ~ country
@@ -1355,8 +1354,8 @@ data_overviews <- data_tot %>%
     QoQ_con_2 = con_2 - lag(con_2),
     QoQ_con_tot = conv_tot - lag(conv_tot)
   ) %>%
-  dplyr::ungroup()
-  
+  dplyr::ungroup() 
+
 
 
 ## Create little QPC slice of data overviews 
@@ -1384,8 +1383,10 @@ data_overviews_test_customer <- data_overviews %>%
   spread(temp, value) %>%
   mutate_if(is.numeric, ~replace(., is.na(.), 0)) %>%
   dplyr::arrange(quarter) %>%
-  dplyr::filter(quarter == max(quarter) & quarter !="2021 Q4") %>%
+  #dplyr::filter(quarter == max(quarter) & quarter !="2021 Q4") %>%
   dplyr::select(quarter, country, comb_name, NewvsCurrent, rank_order, starts_with("Mobile")) 
+
+data_overviews_test_customer_app <- write.csv(data_overviews_test_customer, "data_overviews_test_customer_app.csv")
 
 # Run this and copy to excel for N2B 
 data_overviews_test_n2b <- data_overviews %>%
