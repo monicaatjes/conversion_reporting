@@ -17,7 +17,7 @@ library(stringr)
 library(rmarkdown)
 #ibrary(ingmarkdowntemplates)
 library(ggplot2)
-library(ggflags)
+#library(ggflags)
 library(lubridate)
 library(png)
 library(ggimage)
@@ -201,6 +201,13 @@ AUS15$Quarter <- "3rd Quarter 2022"
 AUS16 <- read_csv("~/Documents/conversion_reporting/data/aus_mobile_web_Q3.csv")
 AUS16$Quarter <- "3rd Quarter 2022"
 
+AUS17 <- read_csv("~/Documents/conversion_reporting/data/aus_Q4_desktop.csv")
+AUS17$Quarter <- "4th Quarter 2022"
+AUS18 <- read_csv("~/Documents/conversion_reporting/data/aus_mobileapp_Q4.csv")
+AUS18$Quarter <- "4th Quarter 2022"
+AUS19 <- read_csv("~/Documents/conversion_reporting/data/aus_mobileweb_Q4.csv")
+AUS19$Quarter <- "4th Quarter 2022"
+
 
 # first step is connect data per device with each other
 # Desktop
@@ -208,17 +215,19 @@ AUS1 <- dplyr::full_join(AUS1, AUS4)
 AUS1 <- dplyr::full_join(AUS1, AUS7)
 AUS1 <- dplyr::full_join(AUS1, AUS10)
 AUS1 <- dplyr::full_join(AUS1, AUS14)
+AUS1 <- dplyr::full_join(AUS1, AUS17)
 # Mobile web
 AUS2 <- dplyr::full_join(AUS2, AUS6)
 AUS2 <- dplyr::full_join(AUS2, AUS9)
 AUS2 <- dplyr::full_join(AUS2, AUS12)
 AUS2 <- dplyr::full_join(AUS2, AUS16)
+AUS2 <- dplyr::full_join(AUS2, AUS18)
 # Mobile app
 AUS3 <- dplyr::full_join(AUS3, AUS5)
 AUS3 <- dplyr::full_join(AUS3, AUS8)
 AUS3 <- dplyr::full_join(AUS3, AUS11)
 AUS3 <- dplyr::full_join(AUS3, AUS16)
-
+AUS3 <- dplyr::full_join(AUS3, AUS19)
 # AUS4 is reference table!
 AUS4 <- AUS %>%
   dplyr::filter(!is.na(Channel)) %>%
