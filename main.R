@@ -170,7 +170,7 @@ NL <- read_excel("~/Documents/conversion_reporting/data/NL_test.xlsx")
 
 
 ###
-AUS <- read_excel("~/Documents/conversion_reporting/data/AU CRO Reporting - Reference File updatd Q3-22.xlsx", sheet ="Reference Data")
+AUS <- read_excel("~/Documents/conversion_reporting/data/AU CRO Reporting - Reference File updatd Q1-23.xlsx", sheet ="Reference Data")
 
 AUS1 <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - Desktop")
 AUS2 <- read_excel("~/Documents/conversion_reporting/data/Australia Draft Funnel Reporting - V1 04.11.21.xlsx", sheet ="Online - All Devices")
@@ -335,8 +335,9 @@ Aussie2 <- Aussie %>%
   ) %>%
   dplyr::mutate(
     NewvsCurrent = case_when(
-      NewvsCurrent =="EXT" ~ "Customer",
-      NewvsCurrent =="N2B" ~ "N2B",
+      NewvsCurrent =="EXT" & Category != "Insurances" ~ "Customer",
+      NewvsCurrent =="N2B" & Category != "Insurances" ~ "N2B",
+      Category =="Insurances" ~ "Customer&N2B",
       TRUE ~ "N2B"
     )
   ) %>%
@@ -353,6 +354,7 @@ Aussie2 <- Aussie %>%
     Visits = sum(Visits)
   ) %>% 
   dplyr::ungroup() 
+
   
 AUS2 <- dplyr::left_join(Aussie1, Aussie2, by=c("quarter", "Category", "Product")) %>%
   tidyr::spread(Page, Visits) %>%
